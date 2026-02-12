@@ -4,10 +4,9 @@ import com.system.unipar.dto.AtividadeDTO;
 import com.system.unipar.model.Atividade;
 import com.system.unipar.service.AtividadeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/atividades")
@@ -35,6 +34,15 @@ public class AtividadeController {
                     .build();
         } catch (Exception e) {
             throw new RuntimeException("Failed to save atividade", e);
+        }
+    }
+
+    @GetMapping
+    public List<Atividade> findAll() {
+        try {
+            return atividadeService.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to find all atividades", e);
         }
     }
 }
