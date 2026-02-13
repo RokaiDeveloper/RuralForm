@@ -17,15 +17,9 @@ public interface AtividadeRequisitoItemRepository extends JpaRepository<Atividad
     
     List<AtividadeRequisitoItem> findByStatus(String status);
     
-    List<AtividadeRequisitoItem> findByAprovado(boolean aprovado);
-    
     @Query("SELECT ari FROM AtividadeRequisitoItem ari WHERE ari.atividadeRequisitoId = :atividadeRequisitoId AND ari.relatorioId = :relatorioId")
     List<AtividadeRequisitoItem> findByAtividadeRequisitoIdAndRelatorioId(@Param("atividadeRequisitoId") Long atividadeRequisitoId,
                                                                            @Param("relatorioId") Long relatorioId);
-    
-    @Query("SELECT ari FROM AtividadeRequisitoItem ari WHERE ari.relatorioId = :relatorioId AND ari.aprovado = :aprovado")
-    List<AtividadeRequisitoItem> findByRelatorioIdAndAprovado(@Param("relatorioId") Long relatorioId,
-                                                              @Param("aprovado") boolean aprovado);
     
     @Query("SELECT ari FROM AtividadeRequisitoItem ari JOIN AtividadeRequisito ar ON ari.atividadeRequisitoId = ar.id WHERE ar.atividadeId = :atividadeId")
     List<AtividadeRequisitoItem> findByAtividadeId(@Param("atividadeId") Long atividadeId);
