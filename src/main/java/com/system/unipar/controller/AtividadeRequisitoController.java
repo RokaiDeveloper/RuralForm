@@ -57,10 +57,10 @@ public class AtividadeRequisitoController {
     private static AtividadeRequisito getAtividadeRequisito(AtividadeRequisitoDTO atividadeRequisitoDTO) {
         AtividadeRequisito atividadeRequisito = new AtividadeRequisito();
         atividadeRequisito.setAtividadeId(atividadeRequisitoDTO.getAtividadeId());
-        atividadeRequisito.setCheckable(atividadeRequisitoDTO.getNome() != null && !atividadeRequisitoDTO.getNome().isEmpty());
-        atividadeRequisito.setDataDocumento(atividadeRequisitoDTO.getDescricao() != null && !atividadeRequisitoDTO.getDescricao().isEmpty());
-        atividadeRequisito.setDocumentoUpload(atividadeRequisitoDTO.isChecked());
-        atividadeRequisito.setDescricaoRequisito(atividadeRequisitoDTO.isChecked());
+        atividadeRequisito.setCheckable(atividadeRequisitoDTO.isCheckable());
+        atividadeRequisito.setDataDocumento(atividadeRequisitoDTO.isDataDocumento());
+        atividadeRequisito.setDocumentoUpload(atividadeRequisitoDTO.isDocumentoUpload());
+        atividadeRequisito.setDescricaoRequisito(atividadeRequisitoDTO.getDescricaoRequisito());
         return atividadeRequisito;
     }
 }
