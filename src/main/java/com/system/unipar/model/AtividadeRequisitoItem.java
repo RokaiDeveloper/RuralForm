@@ -37,9 +37,6 @@ public class AtividadeRequisitoItem {
     @Column(name = "status", nullable = true)
     private String status;
 
-    @Column(name = "aprovado")
-    private boolean aprovado;
-
     @Column(name = "relatorio_id")
     private Long relatorioId;
 

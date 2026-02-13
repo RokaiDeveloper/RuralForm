@@ -23,4 +23,7 @@ public class Relatorio {
 
     @Column(name = "atividade_id")
     private long atividadeId;
+
+    @Column(name = "status", nullable = true)
+    private String status;
 }

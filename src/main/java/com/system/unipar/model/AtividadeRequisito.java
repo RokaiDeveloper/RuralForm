@@ -30,6 +30,6 @@ public class AtividadeRequisito {
     @Column(name = "documento_upload")
     private boolean documentoUpload;
 
-    @Column(name = "obrigatorio")
-    private boolean obrigatorio;
+    @Column(name = "descricao_requisito")
+    private String descricaoRequisito;
 }
