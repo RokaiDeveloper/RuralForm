@@ -147,15 +147,6 @@ public class AtividadeRequisitoItemService {
         }
     }
 
-    public List<AtividadeRequisitoItem> findByAprovado(boolean aprovado) {
-        try {
-            return atividadeRequisitoItemRepository.findByAprovado(aprovado);
-        } catch (DataAccessException e) {
-            logger.log(Level.SEVERE, "Erro ao buscar itens por aprovado: " + aprovado, e);
-            return List.of();
-        }
-    }
-
     public List<AtividadeRequisitoItem> findByAtividadeRequisitoIdAndRelatorioId(Long atividadeRequisitoId, Long relatorioId) {
         try {
             if (atividadeRequisitoId == null || atividadeRequisitoId <= 0 || relatorioId == null || relatorioId <= 0) {
@@ -165,19 +156,6 @@ public class AtividadeRequisitoItemService {
             return atividadeRequisitoItemRepository.findByAtividadeRequisitoIdAndRelatorioId(atividadeRequisitoId, relatorioId);
         } catch (DataAccessException e) {
             logger.log(Level.SEVERE, "Erro ao buscar itens por atividade requisito ID e relatório ID: " + atividadeRequisitoId + ", " + relatorioId, e);
-            return List.of();
-        }
-    }
-
-    public List<AtividadeRequisitoItem> findByRelatorioIdAndAprovado(Long relatorioId, boolean aprovado) {
-        try {
-            if (relatorioId == null || relatorioId <= 0) {
-                logger.warning("ID de relatório inválido fornecido: " + relatorioId);
-                return List.of();
-            }
-            return atividadeRequisitoItemRepository.findByRelatorioIdAndAprovado(relatorioId, aprovado);
-        } catch (DataAccessException e) {
-            logger.log(Level.SEVERE, "Erro ao buscar itens por relatório ID e aprovado: " + relatorioId + ", " + aprovado, e);
             return List.of();
         }
     }
